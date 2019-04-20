@@ -10,14 +10,13 @@ class StorePicker extends React.Component {
     myInput = React.createRef();
 
     //If you need to access 'this' inide of a custom method you must use the syntax below or declare as above in a constructor.
-    goToStore = (event) => {
+    goToStore = event => {
         // 1 . Stop the form from submitting
         event.preventDefault()
         // 2. Get the text from that input (in this case using a ref)
-        console.log(this);
-
+        const storeName = this.myInput.current.value;
         // 3. Change the page to /store/inputtext
-
+        this.props.history.push(`/store/${storeName}`);
     }
     render() {
         return (
